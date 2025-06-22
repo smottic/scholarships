@@ -11,7 +11,6 @@
       font-family: 'Segoe UI', sans-serif;
     }
     .hero {
-      /* Replace with a relevant, high-quality image */
       background: url('https://images.unsplash.com/photo-1541339907198-e08766bfcdb9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80') center/cover no-repeat;
       min-height: 100vh;
       color: white;
@@ -25,20 +24,8 @@
       background: rgba(0,0,0,0.6);
       padding: 3rem;
       border-radius: 15px;
-      max-width: 700px; /* Limit overlay width for better readability */
-    }
-    .btn-scholarship {
-      background-color: #ff3d00;
-      border: none;
-      padding: 0.8rem 2.5rem; /* Slightly larger padding */
-      font-size: 1.3rem; /* Slightly larger font size */
-      border-radius: 8px;
-      transition: background-color 0.3s ease; /* Smooth transition on hover */
-    }
-    .btn-scholarship:hover {
-      background-color: #e63300;
-      transform: translateY(-2px); /* Slight lift on hover */
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Subtle shadow on hover */
+      max-width: 900px; /* Increased max-width for better card layout */
+      width: 90%; /* Ensure it's responsive on smaller screens */
     }
     h1 {
         font-weight: 700;
@@ -48,6 +35,119 @@
         font-size: 1.2rem;
         line-height: 1.6;
     }
+
+    /* Scholarship Cards Section */
+    .scholarship-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+        gap: 1.5rem; /* Space between cards */
+        margin-top: 2.5rem;
+    }
+
+    .scholarship-card {
+        background-color: #ffffff; /* White background for cards */
+        color: #333; /* Dark text for readability */
+        padding: 1.5rem;
+        border-radius: 10px;
+        text-decoration: none; /* Remove underline from links */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Pushes button to the bottom */
+        align-items: center;
+        text-align: center;
+        min-height: 220px; /* Increased min-height to accommodate the button */
+        position: relative; /* Needed for any absolute positioning inside, if desired */
+    }
+
+    .scholarship-card:hover {
+        transform: translateY(-8px); /* Lift effect */
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3); /* Stronger shadow */
+        color: #333; /* Maintain text color on hover */
+    }
+
+    .scholarship-card h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+    .scholarship-card p.description {
+        font-size: 0.95rem;
+        line-height: 1.4;
+        color: #555;
+        margin-bottom: 1rem; /* Space before the button */
+        flex-grow: 1; /* Allows description to take up available space */
+    }
+
+    /* Learn More Button specific styles */
+    .btn-learn-more {
+        display: inline-block;
+        padding: 0.6rem 1.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 5px;
+        text-decoration: none;
+        color: white;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        margin-top: auto; /* Pushes the button to the bottom of the flex container */
+    }
+
+    .btn-learn-more:hover {
+        transform: translateY(-2px);
+        color: white; /* Keep text color white on hover */
+    }
+
+    /* Individual Card Colors (border, heading, and button) */
+    .card-usa {
+        border: 4px solid #007bff; /* Blue border */
+    }
+    .card-usa h3 { color: #007bff; }
+    .card-usa .btn-learn-more { background-color: #007bff; }
+    .card-usa .btn-learn-more:hover { background-color: #0056b3; }
+
+    .card-australia {
+        border: 4px solid #28a745; /* Green border */
+    }
+    .card-australia h3 { color: #28a745; }
+    .card-australia .btn-learn-more { background-color: #28a745; }
+    .card-australia .btn-learn-more:hover { background-color: #1e7e34; }
+
+    .card-canada {
+        border: 4px solid #ffc107; /* Yellow border */
+    }
+    .card-canada h3 { color: #e0a800; } /* Darker yellow for text */
+    .card-canada .btn-learn-more { background-color: #ffc107; color: #343a40; } /* Yellow button, dark text */
+    .card-canada .btn-learn-more:hover { background-color: #e0a800; color: #343a40; }
+
+    .card-global {
+        border: 4px solid #6f42c1; /* Purple border */
+    }
+    .card-global h3 { color: #6f42c1; }
+    .card-global .btn-learn-more { background-color: #6f42c1; }
+    .card-global .btn-learn-more:hover { background-color: #563d7c; }
+
+    /* Responsive adjustments for the overlay */
+    @media (max-width: 768px) {
+        .overlay {
+            padding: 2rem;
+            width: 95%; /* Adjust width for smaller screens */
+        }
+        .scholarship-card {
+            padding: 1rem;
+            min-height: 200px; /* Adjust height for smaller screens */
+        }
+        .scholarship-card h3 {
+            font-size: 1.3rem;
+        }
+        .scholarship-card p.description {
+            font-size: 0.85rem;
+        }
+        .btn-learn-more {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+    }
   </style>
 </head>
 <body>
@@ -55,14 +155,35 @@
   <section class="hero">
     <div class="overlay">
       <h1 class="mb-3">🎓 Fully Funded Scholarships 2025</h1>
-      <p class="mb-4">Don't miss out! Apply now to study in 🇺🇸 USA, 🇦🇺 Australia, or 🇨🇦 Canada with all your expenses covered!</p>
-      <a href="https://gersikolaiuo35.exblog.jp/33678367/" class="btn btn-scholarship" rel="noreferrer">Click Here!</a>
+      <p class="mb-4">Don't miss out! Explore these fully funded scholarship opportunities and study abroad with all your expenses covered!</p>
+
+      <div class="scholarship-grid">
+        <a href="https://gersikolaiuo35.exblog.jp/33678370/" class="scholarship-card card-usa" rel="noreferrer">
+            <h3>🇺🇸 USA Scholarships</h3>
+            <p class="description">Unlock your dream of studying in the United States with full financial support.</p>
+            <span class="btn-learn-more">Learn More</span>
+        </a>
+
+        <a href="https://gersikolaiuo35.exblog.jp/33678377/" class="scholarship-card card-australia" rel="noreferrer">
+            <h3>🇦🇺 Australia Scholarships</h3>
+            <p class="description">Discover opportunities to study down under without the financial burden.</p>
+            <span class="btn-learn-more">Learn More</span>
+        </a>
+
+        <a href="https://gersikolaiuo35.exblog.jp/33678381/" class="scholarship-card card-canada" rel="noreferrer">
+            <h3>🇨🇦 Canada Scholarships</h3>
+            <p class="description">Secure your future in Canada with fully funded academic programs.</p>
+            <span class="btn-learn-more">Learn More</span>
+        </a>
+
+        <a href="https://gersikolaiuo35.exblog.jp/33678370/" class="scholarship-card card-global" rel="noreferrer">
+            <h3>🌍 Other Global Scholarships</h3>
+            <p class="description">Explore a diverse range of scholarships available worldwide.</p>
+            <span class="btn-learn-more">Learn More</span>
+        </a>
+      </div>
     </div>
   </section>
 
-<!-- BEGIN: Powered by Supercounters.com -->
-<center><script type="text/javascript" src="//widget.supercounters.com/ssl/online_i.js"></script><script type="text/javascript">sc_online_i(1716141,"ffffff","ffffff");</script><!-- END: Powered by Supercounters.com -->
-
-  
 </body>
 </html>
